@@ -17,6 +17,11 @@ int main()
 
   std::cout << "The address of P: " << &coords << std::endl;
   std::cout << "The address of Q: " << &secondCoords << std::endl;
+
+  Coord3D * ans = fartherFromOrigin(&coords, &secondCoords);
+  std::cout << "\nThe farthest one from the origin is " << ans << std::endl;
+
+  std::cout << "\n----------------Task C----------------\n" << std::endl;
   
   return 0;
 }

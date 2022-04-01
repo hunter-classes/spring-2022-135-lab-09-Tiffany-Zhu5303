@@ -1,3 +1,4 @@
 #pragma once
+#include "coord3d.h"
 
-// add prototypes here
+Coord3D * fartherFromOrigin(Coord3D *p1, Coord3D *p2);
