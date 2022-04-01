@@ -77,4 +77,27 @@ TEST_CASE("Make and create coordinates"){
 
   deleteCoord3D(ppos);
   deleteCoord3D(pvel);
+
+  x = 1.2, y = 5.6, z = 7.8;
+  ppos = createCoord3D(x, y, z);
+  
+  CHECK(ppos->x == doctest::Approx(1.2).epsilon(0.2));
+  CHECK(ppos->y == doctest::Approx(5.6).epsilon(0.2));
+  CHECK(ppos->z == doctest::Approx(7.8).epsilon(0.2));
+ 
+  x = 7, y = 5; z = 1;
+  pvel = createCoord3D(x, y, z);
+
+  CHECK(pvel->x == 7);
+  CHECK(pvel->y == 5);
+  CHECK(pvel->z == 1);
+
+  move(ppos, pvel, 4);
+
+  CHECK(ppos->x == doctest::Approx(29.2).epsilon(0.2));
+  CHECK(ppos->y == doctest::Approx(25.6).epsilon(0.2));
+  CHECK(ppos->z == doctest::Approx(11.8).epsilon(0.2));
+
+  deleteCoord3D(ppos);
+  deleteCoord3D(pvel);
 }
