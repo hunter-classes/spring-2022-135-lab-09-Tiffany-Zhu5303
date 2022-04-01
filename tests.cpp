@@ -53,3 +53,28 @@ TEST_CASE("Move coordinates"){
   CHECK(pos.y == doctest::Approx(71.2).epsilon(0.02));
   CHECK(pos.z == doctest::Approx(77.8).epsilon(0.02));
 }
+
+TEST_CASE("Make and create coordinates"){
+  double x = 12, y = 4, z = 4;
+  Coord3D *ppos = createCoord3D(x, y, z);
+  
+  CHECK(ppos->x == 12);
+  CHECK(ppos->y == 4);
+  CHECK(ppos->z == 4);
+  
+  x = 4, y = 2; z = 7;
+  Coord3D *pvel = createCoord3D(x, y, z);
+
+  CHECK(pvel->x == 4);
+  CHECK(pvel->y == 2);
+  CHECK(pvel->z == 7);
+
+  move(ppos, pvel, 2);
+
+  CHECK(ppos->x == 20);
+  CHECK(ppos->y == 8);
+  CHECK(ppos->z == 18);
+
+  deleteCoord3D(ppos);
+  deleteCoord3D(pvel);
+}

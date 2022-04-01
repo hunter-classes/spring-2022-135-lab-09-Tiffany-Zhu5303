@@ -26,7 +26,21 @@ int main()
   Coord3D vel = {1, -5, 0.2};
 
   move(&pos, &vel, 2.0);
-  std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
+  std::cout << "These are the new positions: " << pos.x << " " << pos.y << " " << pos.z << std::endl;
+
+  std::cout << "\n----------------Task E----------------\n" << std::endl;
+  double x = 10, y = 20, z = 30;
+  Coord3D *ppos = createCoord3D(x, y, z);
+
+  x = 0; y = 6; z = 1.0;
+  Coord3D *pvel = createCoord3D(x, y, z);
+
+  move(ppos, pvel, 3);
+
+  std::cout << "Coordinates after 3 seconds: " << ppos->x << " " << ppos->y << " " << ppos->z << std::endl;
+
+  deleteCoord3D(ppos);
+  deleteCoord3D(pvel);
   
   return 0;
 }
