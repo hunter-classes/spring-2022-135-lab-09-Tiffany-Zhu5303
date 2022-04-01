@@ -22,6 +22,11 @@ int main()
   std::cout << "\nThe farthest one from the origin is " << ans << std::endl;
 
   std::cout << "\n----------------Task C----------------\n" << std::endl;
+  Coord3D pos = {0, 0, 100.0};
+  Coord3D vel = {1, -5, 0.2};
+
+  move(&pos, &vel, 2.0);
+  std::cout << pos.x << " " << pos.y << " " << pos.z << std::endl;
   
   return 0;
 }

@@ -35,3 +35,21 @@ TEST_CASE("Farthest vector from origin"){
 
   CHECK(fartherFromOrigin(&secondVector, &firstVector) == &firstVector);
 }
+
+TEST_CASE("Move coordinates"){
+  Coord3D pos = {12, 67, 17.6};
+  Coord3D vel = {1, -4, -5};
+
+  move(&pos, &vel, 6);
+  CHECK(pos.x == 18);
+  CHECK(pos.y == 43);
+  CHECK(pos.z == doctest::Approx(-12.4).epsilon(0.02));
+
+  pos = {3, 4, 5};
+  vel = {5, 12, 13};
+
+  move(&pos, &vel, 5.6);
+  CHECK(pos.x == 31);
+  CHECK(pos.y == doctest::Approx(71.2).epsilon(0.02));
+  CHECK(pos.z == doctest::Approx(77.8).epsilon(0.02));
+}
